@@ -44,7 +44,6 @@ class MyApp extends StatelessWidget {
             ),
           );
         }
-
         // 3. Route untuk halaman Avatar (Zoom Foto)
         if (settings.name == '/avatar') {
           final argsAvatar = settings.arguments as Map<String, String>;
@@ -55,8 +54,6 @@ class MyApp extends StatelessWidget {
             ),
           );
         }
-
-        // Fallback jika route tidak ditemukan
         return null;
       },
     );
