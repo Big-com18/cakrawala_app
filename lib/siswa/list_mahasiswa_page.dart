@@ -32,17 +32,17 @@ final List<Mahasiswa> daftarMahasiswaDummy = [
     fotoUrl: 'https://i.pravatar.cc/300?img=11',
   ),
   Mahasiswa(
-    nama: 'Citra Kirana',
+    nama: 'Adi Permana',
     nim: '24110300013',
     jurusan: 'Sistem Informasi',
-    deskripsi: 'Citra fokus pada UI/UX Design dan mahir menggunakan Figma.',
+    deskripsi: 'Adi fokus pada UI/UX Design dan mahir menggunakan Figma.',
     fotoUrl: 'https://i.pravatar.cc/300?img=12',
   ),
   Mahasiswa(
-    nama: 'Dewi Lestari',
+    nama: 'Agus Susanto',
     nim: '24110300014',
     jurusan: 'Ilmu Komputer',
-    deskripsi: 'Dewi aktif di komunitas open source dan sering berkontribusi di GitHub.',
+    deskripsi: 'Agus aktif di komunitas open source dan sering berkontribusi di GitHub.',
     fotoUrl: 'https://i.pravatar.cc/300?img=13',
   ),
 ];

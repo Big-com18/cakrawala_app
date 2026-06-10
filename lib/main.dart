@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'siswa/list_mahasiswa_page.dart';
-import 'siswa/detail_mahasiswa_page.dart';
-import 'siswa/avatar_detail_page.dart';
-import 'sesi5/product_list_page.dart';
-import 'sesi5/product_detail_page.dart';  
-import 'sesi5/checkout_page.dart';
-
-// 1. IMPORT FILE BARUNYA DI SINI
-import 'state/state_coba.dart'; 
+// Pastikan path import di bawah ini disesuaikan dengan struktur folder kamu
+import 'package:cakrawala_app/siswa/list_mahasiswa_page.dart'; 
+import 'package:cakrawala_app/siswa/detail_mahasiswa_page.dart';
+import 'package:cakrawala_app/siswa/avatar_detail_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tugas Navigasi',
+      title: 'Portal Akademik',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: const Color(0xFF1565C0),
@@ -30,43 +25,38 @@ class MyApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      initialRoute: '/', 
-      
+      initialRoute: '/',
       onGenerateRoute: (settings) {
-        // Route Halaman 1: List Mahasiswa
+        
+        // 1. Route untuk halaman utama (List Mahasiswa)
         if (settings.name == '/') {
           return MaterialPageRoute(
             builder: (context) => const ListMahasiswaPage(),
           );
         }
 
-        // Route Halaman 2: Detail Mahasiswa
+        // 2. Route untuk halaman Detail Mahasiswa
         if (settings.name == '/detail') {
-          final args = settings.arguments as Mahasiswa;
+          final argsMahasiswa = settings.arguments as Mahasiswa;
           return MaterialPageRoute(
-            builder: (context) => DetailMahasiswaPage(dataMahasiswa: args),
-          );
-        }
-
-        // Route Halaman 3: Avatar Detail
-        if (settings.name == '/avatar') {
-          final args = settings.arguments as Map<String, dynamic>;
-          return MaterialPageRoute(
-            builder: (context) => AvatarDetailPage(
-              fotoUrl: args['fotoUrl'],
-              namaMahasiswa: args['namaMahasiswa'],
+            builder: (context) => DetailMahasiswaPage(
+              dataMahasiswa: argsMahasiswa,
             ),
           );
         }
 
-        // 2. TAMBAHKAN ROUTE BARU UNTUK STATE COBA DI SINI
-        if (settings.name == '/belajar-state') {
+        // 3. Route untuk halaman Avatar (Zoom Foto)
+        if (settings.name == '/avatar') {
+          final argsAvatar = settings.arguments as Map<String, String>;
           return MaterialPageRoute(
-            // Pastikan 'Belajarstate' adalah nama class yang ada di dalam state_coba.dart
-            builder: (context) => const Belajarstate(), 
+            builder: (context) => AvatarDetailPage(
+              fotoUrl: argsAvatar['fotoUrl'] ?? '',
+              namaMahasiswa: argsAvatar['namaMahasiswa'] ?? '',
+            ),
           );
         }
 
+        // Fallback jika route tidak ditemukan
         return null;
       },
     );
