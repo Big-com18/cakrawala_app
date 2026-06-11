@@ -18,10 +18,10 @@ class Mahasiswa {
 
 final List<Mahasiswa> daftarMahasiswaDummy = [
   Mahasiswa(
-    nama: 'Andi Saputra',
+    nama: 'Citra Kirana',
     nim: '24110300011',
     jurusan: 'Ilmu Komputer',
-    deskripsi: 'Andi sangat menyukai pengembangan backend dan sering menggunakan Node.js.',
+    deskripsi: 'Citra adalah seorang programmer yang mahir dalam pengembangan frontend dan sering menggunakan Flutter.',
     fotoUrl: 'https://i.pravatar.cc/300?img=10',
   ),
   Mahasiswa(
