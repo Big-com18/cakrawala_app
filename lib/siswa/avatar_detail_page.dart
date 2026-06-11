@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AvatarDetailPage extends StatelessWidget {
-  final String fotoUrl;
-  final String namaMahasiswa;
-
-  const AvatarDetailPage({
-    super.key, 
-    required this.fotoUrl,
-    required this.namaMahasiswa,
-  });
+  const AvatarDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final Map<String, String> args = ModalRoute.of(context)!.settings.arguments as Map<String, String>;
+    final String fotoUrl = args['fotoUrl'] ?? '';
+    final String namaMahasiswa = args['namaMahasiswa'] ?? '';
+
     return Scaffold(
       backgroundColor: Colors.black, 
       appBar: AppBar(

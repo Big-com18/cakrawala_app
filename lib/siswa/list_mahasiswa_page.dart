@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Model Data Mahasiswa
 class Mahasiswa {
   final String nama;
   final String nim;
@@ -32,17 +33,17 @@ final List<Mahasiswa> daftarMahasiswaDummy = [
     fotoUrl: 'https://i.pravatar.cc/300?img=11',
   ),
   Mahasiswa(
-    nama: 'Adi Permana',
+    nama: 'Citra Kirana',
     nim: '24110300013',
     jurusan: 'Sistem Informasi',
-    deskripsi: 'Adi fokus pada UI/UX Design dan mahir menggunakan Figma.',
+    deskripsi: 'Citra fokus pada UI/UX Design dan mahir menggunakan Figma.',
     fotoUrl: 'https://i.pravatar.cc/300?img=12',
   ),
   Mahasiswa(
-    nama: 'Agus Susanto',
+    nama: 'Dewi Lestari',
     nim: '24110300014',
     jurusan: 'Ilmu Komputer',
-    deskripsi: 'Agus aktif di komunitas open source dan sering berkontribusi di GitHub.',
+    deskripsi: 'Dewi aktif di komunitas open source dan sering berkontribusi di GitHub.',
     fotoUrl: 'https://i.pravatar.cc/300?img=13',
   ),
 ];
@@ -76,7 +77,6 @@ class ListMahasiswaPage extends StatelessWidget {
               subtitle: Text('NIM: ${mhs.nim}'),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () {
-                // Menggunakan Named Route dan mengirim objek mhs ke parameter arguments
                 Navigator.pushNamed(
                   context,
                   '/detail',

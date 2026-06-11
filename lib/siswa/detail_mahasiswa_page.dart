@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'list_mahasiswa_page.dart'; 
 
 class DetailMahasiswaPage extends StatelessWidget {
-  final Mahasiswa dataMahasiswa;
-
-  const DetailMahasiswaPage({super.key, required this.dataMahasiswa});
+  const DetailMahasiswaPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final Mahasiswa dataMahasiswa = ModalRoute.of(context)!.settings.arguments as Mahasiswa;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail Mahasiswa'),

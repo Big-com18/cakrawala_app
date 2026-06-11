@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// Pastikan path import di bawah ini disesuaikan dengan struktur folder kamu
 import 'package:cakrawala_app/siswa/list_mahasiswa_page.dart'; 
 import 'package:cakrawala_app/siswa/detail_mahasiswa_page.dart';
 import 'package:cakrawala_app/siswa/avatar_detail_page.dart';
@@ -25,37 +24,57 @@ class MyApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      initialRoute: '/',
-      onGenerateRoute: (settings) {
-        
-        // 1. Route untuk halaman utama (List Mahasiswa)
-        if (settings.name == '/') {
-          return MaterialPageRoute(
-            builder: (context) => const ListMahasiswaPage(),
-          );
-        }
-
-        // 2. Route untuk halaman Detail Mahasiswa
-        if (settings.name == '/detail') {
-          final argsMahasiswa = settings.arguments as Mahasiswa;
-          return MaterialPageRoute(
-            builder: (context) => DetailMahasiswaPage(
-              dataMahasiswa: argsMahasiswa,
-            ),
-          );
-        }
-        // 3. Route untuk halaman Avatar (Zoom Foto)
-        if (settings.name == '/avatar') {
-          final argsAvatar = settings.arguments as Map<String, String>;
-          return MaterialPageRoute(
-            builder: (context) => AvatarDetailPage(
-              fotoUrl: argsAvatar['fotoUrl'] ?? '',
-              namaMahasiswa: argsAvatar['namaMahasiswa'] ?? '',
-            ),
-          );
-        }
-        return null;
+      initialRoute: '/list',
+      routes: {
+        '/': (context) => const HalamanUtama(),
+        '/list': (context) => const ListMahasiswaPage(),
+        '/detail': (context) => const DetailMahasiswaPage(),
+        '/avatar': (context) => const AvatarDetailPage(),
       },
+    );
+  }
+}
+
+class HalamanUtama extends StatefulWidget {
+  const HalamanUtama({super.key});
+
+  @override
+  State<HalamanUtama> createState() => _HalamanUtamaState();
+}
+
+class _HalamanUtamaState extends State<HalamanUtama> {
+  int counter = 0;
+  String pesan = 'Belum ditekan';
+
+  void tambah() {
+    setState(() {
+      counter++;
+      pesan = 'Sudah ditekan $counter kali';
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Belajar State'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              pesan,
+              style: const TextStyle(fontSize: 20),
+            ),
+            const SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: tambah,
+              child: const Text('Tekan Saya'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
