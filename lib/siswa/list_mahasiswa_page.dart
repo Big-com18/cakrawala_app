@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// Model Data Mahasiswa
 class Mahasiswa {
   final String nama;
   final String nim;
@@ -33,24 +32,23 @@ final List<Mahasiswa> daftarMahasiswaDummy = [
     fotoUrl: 'https://i.pravatar.cc/300?img=11',
   ),
   Mahasiswa(
-    nama: 'Citra Kirana',
+    nama: 'Ahmad Subari',
     nim: '24110300013',
     jurusan: 'Sistem Informasi',
-    deskripsi: 'Citra fokus pada UI/UX Design dan mahir menggunakan Figma.',
+    deskripsi: 'Ahmad fokus pada UI/UX Design dan mahir menggunakan Figma.',
     fotoUrl: 'https://i.pravatar.cc/300?img=12',
   ),
   Mahasiswa(
-    nama: 'Dewi Lestari',
+    nama: 'Agus Susanto',
     nim: '24110300014',
     jurusan: 'Ilmu Komputer',
-    deskripsi: 'Dewi aktif di komunitas open source dan sering berkontribusi di GitHub.',
+    deskripsi: 'Agus aktif di komunitas open source dan sering berkontribusi di GitHub.',
     fotoUrl: 'https://i.pravatar.cc/300?img=13',
   ),
 ];
 
 class ListMahasiswaPage extends StatelessWidget {
   const ListMahasiswaPage({super.key}); 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +59,6 @@ class ListMahasiswaPage extends StatelessWidget {
         itemCount: daftarMahasiswaDummy.length, 
         itemBuilder: (context, index) {
           final mhs = daftarMahasiswaDummy[index];
-          
           return Card(
             margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             elevation: 2,

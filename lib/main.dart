@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/list',
       routes: {
-        '/': (context) => const HalamanUtama(),
         '/list': (context) => const ListMahasiswaPage(),
         '/detail': (context) => const DetailMahasiswaPage(),
         '/avatar': (context) => const AvatarDetailPage(),
